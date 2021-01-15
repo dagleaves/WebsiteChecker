@@ -22,14 +22,18 @@ def open_file(name):
     except:
         print('File not found')
 
-parser = argparse.ArgumentParser(description='Check websites\' status')
-parser.add_argument('sites', help='The website(s) to be checked', nargs='*')
-parser.add_argument('-f', help='A .txt file with websites to check', nargs='?')
-args = parser.parse_args()
+def main():
+    parser = argparse.ArgumentParser(description='Check websites\' status')
+    parser.add_argument('sites', help='The website(s) to be checked', nargs='*')
+    parser.add_argument('-f', help='A .txt file with websites to check', nargs='?')
+    args = parser.parse_args()
 
-if args.sites != []:
-    for site in args.sites:
-        check_site(site)
+    if args.sites != []:
+        for site in args.sites:
+            check_site(site)
 
-if args.f:
-    open_file(args.f)
+    if args.f:
+        open_file(args.f)
+
+if __name__ == '__main__':
+    main()
